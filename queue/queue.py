@@ -47,27 +47,27 @@ class Queue:
         if not self.head and not self.tail:
             self.head = new_node
             self.tail = new_node
-            self.size += 1
         else:
-            self.tail = new_node
             self.tail.set_next(new_node)
-            self.size += 1
+            self.tail = new_node
 
     def dequeue(self):
+        dequeued_node = self.head
         if not self.head and not self.tail:
             return None
 
         if self.head == self.tail:
-            old_head = self.head
             self.head = None
             self.tail = None
-            self.size -= 1
-            return old_head.get_value()
         else:
-            old_head = self.head
             self.head = self.head.get_next()
-            self.size -= 1
-            return old_head.get_value()
+
+        return dequeued_node.value
 
     def len(self):
-        return self.size
+        count = 0
+        current_node = self.head
+        while current_node != None:
+            count += 1
+            current_node = current_node.get_next()
+        return count
