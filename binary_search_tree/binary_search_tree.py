@@ -23,22 +23,21 @@ class BinarySearchTree:
         if target == self.value:
             return True
         elif target < self.value and self.left:
-            self.left.contains(target)
+            return self.left.contains(target)
         elif target > self.value and self.right:
-            self.right.contains(target)
+            return self.right.contains(target)
         else:
             return False
 
     def get_max(self):
-        pass
-        # current_max = self.value
-        # current_node = self
-        # while current_node.right != None:
-        #     if current_max < current_node.value:
-        #         current_max = current_node.value
-        #         current_node.value = self.right
+        # pass
+        current_max = self.value
 
-        # return current_max
+        while self.right != None:
+            if current_max < self.value:
+                return self.right.get_max()
+
+            return current_max
 
     def for_each(self, cb):
         pass
