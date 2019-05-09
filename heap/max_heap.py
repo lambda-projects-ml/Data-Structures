@@ -39,9 +39,9 @@ class Heap:
                 break
 
     def _sift_down(self, index):
-        left = (2*index)+1
-        right = (2*index)+2
-        if left < len(self.storage)-1 or right< len(self.storage)-1:
+        left = 2 * index + 1
+        right = 2 * index + 2
+        if left < len(self.storage)-1 or right < len(self.storage)-1:
             if self.storage[left] < self.storage[right]:
                 if self.storage[index] < self.storage[right]:
                     self.storage[index], self.storage[right] = self.storage[right], self.storage[index]
